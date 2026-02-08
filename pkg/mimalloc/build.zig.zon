@@ -1,0 +1,17 @@
+.{
+    .name = .mimalloc,
+    .version = "0.0.0",
+    .fingerprint = 0x26391c39aac4e2c9, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.15.2",
+    .dependencies = .{
+        .mimalloc = .{
+            .url = "git+https://github.com/NikoMalik/mimalloc#59b172982fda8565e7252bd0268a42d07db77a63",
+            .hash = "N-V-__8AAB_ETAA6ZgX9OCFdyAUQ0Ip_Okw3USaMHl9AhThX",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "",
+    },
+}

@@ -10,6 +10,7 @@ const oni = @import("oniguruma");
 const crash = @import("crash/main.zig");
 const renderer = @import("renderer.zig");
 const apprt = @import("apprt.zig");
+const mimalloc = @import("mimalloc");
 
 /// We export the xev backend we want to use so that the rest of
 /// Ghostty can import this once and have access to the proper
@@ -90,10 +91,8 @@ pub const GlobalState = struct {
 
         self.alloc = if (self.gpa) |*value|
             value.allocator()
-        else if (builtin.link_libc)
-            std.heap.c_allocator
         else
-            unreachable;
+            mimalloc.mimalloc_allocator;
 
         // We first try to parse any action that we may be executing.
         self.action = try cli.action.detectArgs(

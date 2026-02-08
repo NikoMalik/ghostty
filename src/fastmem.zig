@@ -4,21 +4,13 @@ const builtin = @import("builtin");
 /// Same as @memmove but prefers libc memmove if it is
 /// available because it is generally much faster?.
 pub inline fn move(comptime T: type, dest: []T, source: []const T) void {
-    if (builtin.link_libc) {
-        _ = memmove(dest.ptr, source.ptr, source.len * @sizeOf(T));
-    } else {
-        @memmove(dest, source);
-    }
+    @memmove(dest, source);
 }
 
 /// Same as @memcpy but prefers libc memcpy if it is available
 /// because it is generally much faster.
 pub inline fn copy(comptime T: type, dest: []T, source: []const T) void {
-    if (builtin.link_libc) {
-        _ = memcpy(dest.ptr, source.ptr, source.len * @sizeOf(T));
-    } else {
-        @memcpy(dest[0..source.len], source);
-    }
+    @memcpy(dest[0..source.len], source);
 }
 
 /// Moves the first item to the end.

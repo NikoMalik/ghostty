@@ -29,11 +29,11 @@ font_backend: FontBackend = .freetype,
 
 /// Feature flags
 x11: bool = false,
-wayland: bool = false,
+wayland: bool = true,
 sentry: bool = true,
 simd: bool = true,
 i18n: bool = true,
-wasm_shared: bool = true,
+wasm_shared: bool = false,
 
 /// Ghostty exe properties
 exe_entrypoint: ExeEntrypoint = .ghostty,
@@ -41,7 +41,7 @@ version: std.SemanticVersion = .{ .major = 0, .minor = 0, .patch = 0 },
 
 /// Binary properties
 pie: bool = false,
-strip: bool = false,
+strip: bool = true,
 patch_rpath: ?[]const u8 = null,
 
 /// Artifacts

@@ -19,6 +19,7 @@
             .hash = "vaxis-0.5.1-BWNV_LosCQAGmCCNOLljCIw6j6-yt53tji6n6rwJ2BhS",
             .lazy = true,
         },
+
         .z2d = .{
             // vancluever/z2d
             .url = "https://github.com/vancluever/z2d/archive/refs/tags/v0.10.0.tar.gz",
@@ -79,6 +80,7 @@
         .utfcpp = .{ .path = "./pkg/utfcpp", .lazy = true },
         .wuffs = .{ .path = "./pkg/wuffs", .lazy = true },
         .zlib = .{ .path = "./pkg/zlib", .lazy = true },
+        .mimalloc = .{ .path = "./pkg/mimalloc", .lazy = true },
 
         // Shader translation
         .glslang = .{ .path = "./pkg/glslang", .lazy = true },
